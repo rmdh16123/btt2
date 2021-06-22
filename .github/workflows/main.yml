@@ -1,4 +1,4 @@
-name: coins
+name: btt2
 on: [push, pull_request]
 jobs:
 build:
